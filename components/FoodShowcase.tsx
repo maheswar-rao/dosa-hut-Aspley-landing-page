@@ -16,6 +16,12 @@ export function FoodShowcase() {
           A short list of the dishes Aspley keeps coming back for &mdash; from
           paper-thin dosas to slow-simmered curries.
         </p>
+        <p className="text-sm leading-relaxed text-ink-600 md:text-base">
+          Dosa Hut Aspley brings fine-dining Indian cuisine to Gayford Street
+          &mdash; over 100 dishes spanning South Indian classics, biryanis,
+          tandoori grills, curries, and street-side chaat, part of Dosa
+          Hut&rsquo;s 25+ branch family across Australia.
+        </p>
       </div>
 
       <div className="flex w-full items-center gap-2.5 overflow-x-auto pb-1 md:w-auto md:flex-wrap md:justify-center md:overflow-visible">
@@ -86,8 +92,8 @@ export function FoodShowcase() {
         </Button>
       </div>
 
-      <Button href={SITE.orderUrl} variant="outline-dark" size="md">
-        VIEW FULL MENU
+      <Button href={SITE.menuPdfUrl} variant="outline-dark" size="md" external>
+        VIEW FULL MENU (PDF)
       </Button>
     </section>
   );

@@ -73,21 +73,14 @@ export function Location() {
               className="object-cover"
             />
           </div>
-          <div className="relative h-[160px] w-full overflow-hidden rounded-[22px] border border-maroon-800/10 bg-cream-200 md:h-[200px]">
-            <svg width="100%" height="100%" viewBox="0 0 500 200" preserveAspectRatio="none" className="absolute inset-0">
-              <line x1="0" y1="40" x2="500" y2="40" stroke="#DFC8A6" strokeWidth={1.5} />
-              <line x1="0" y1="100" x2="500" y2="100" stroke="#DFC8A6" strokeWidth={1.5} />
-              <line x1="0" y1="160" x2="500" y2="160" stroke="#DFC8A6" strokeWidth={1.5} />
-              <line x1="100" y1="0" x2="100" y2="200" stroke="#DFC8A6" strokeWidth={1.5} />
-              <line x1="250" y1="0" x2="250" y2="200" stroke="#DFC8A6" strokeWidth={1.5} />
-              <line x1="380" y1="0" x2="380" y2="200" stroke="#DFC8A6" strokeWidth={1.5} />
-            </svg>
-            <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-3/5 flex-col items-center gap-1.5">
-              <PinIcon size={30} color="#E8622C" />
-              <span className="rounded-full bg-cream-0 px-3 py-1 text-[11px] font-bold text-maroon-800 shadow-[0_4px_10px_rgba(58,13,13,0.15)] md:px-3.5 md:py-1.5 md:text-[12.5px]">
-                Dosa Hut Aspley
-              </span>
-            </div>
+          <div className="relative h-[220px] w-full overflow-hidden rounded-[22px] border border-maroon-800/10 bg-cream-200 md:h-[280px]">
+            <iframe
+              src={SITE.mapEmbedUrl}
+              title="Dosa Hut Aspley location map"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full border-0"
+            />
           </div>
         </div>
       </div>

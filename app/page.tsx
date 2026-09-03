@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { TrustStrip } from "@/components/TrustStrip";
+import { OrderPlatforms } from "@/components/OrderPlatforms";
 import { FoodShowcase } from "@/components/FoodShowcase";
 import { Gallery } from "@/components/Gallery";
 import { WhyUs } from "@/components/WhyUs";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col overflow-x-hidden">
       <Hero />
       <TrustStrip />
+      <OrderPlatforms />
       <FoodShowcase />
       <Gallery />
       <WhyUs />

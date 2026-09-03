@@ -11,7 +11,7 @@ const EXPLORE_LINKS = [
 
 const SOCIALS = [
   { Icon: FacebookIcon, label: "Facebook", href: "#" },
-  { Icon: InstagramIcon, label: "Instagram", href: "#" },
+  { Icon: InstagramIcon, label: "Instagram", href: SITE.instagramUrl },
   { Icon: YoutubeIcon, label: "YouTube", href: "#" },
   { Icon: LinkedinIcon, label: "LinkedIn", href: "#" },
 ];
@@ -38,6 +38,7 @@ export function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-cream-50/30 text-cream-50 hover:border-cream-50"
               >
                 <Icon size={16} />

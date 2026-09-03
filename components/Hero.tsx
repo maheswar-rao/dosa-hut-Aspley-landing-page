@@ -20,6 +20,16 @@ const HERO_SLIDES = [
     alt: "A spread of multi-cuisine dishes on a wooden table",
     position: "object-center",
   },
+  {
+    src: "/images/gallery-evening.jpg",
+    alt: "Warmly lit restaurant dining area in the evening",
+    position: "object-center",
+  },
+  {
+    src: "/images/gallery-lounge.jpg",
+    alt: "Relaxed lounge and bar seating area",
+    position: "object-center",
+  },
 ];
 
 export function Hero() {

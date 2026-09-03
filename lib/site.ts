@@ -4,14 +4,21 @@
 export const SITE = {
   name: "Dosa Hut Aspley",
   orderUrl: "https://aspley.dosahut.net.au/",
+  menuPdfUrl: "/menu/dosa-hut-aspley-menu.pdf",
   phoneDisplay: "0466 977 674",
   phoneHref: "tel:+61466977674",
-  addressLine1: "Shop 6, 46 Gayford Street",
-  addressLine2: "Aspley, QLD 4032",
-  addressFull: "Shop 6, 46 Gayford Street, Aspley QLD 4032",
-  directionsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Dosa+Hut+Aspley+Shop+6+46+Gayford+Street+Aspley+QLD+4032",
+  addressLine1: "Shop 6 & 7, 46 Gayford Street",
+  addressLine2: "Aspley, QLD 4034",
+  addressFull: "Shop 6 & 7, 46 Gayford Street, Aspley QLD 4034",
+  directionsUrl: "https://maps.app.goo.gl/pUY3J4EjFzS7JB2R9",
+  mapEmbedUrl:
+    "https://www.google.com/maps?q=Shop+6+%26+7%2F46+Gayford+St+Aspley+QLD+4034&output=embed",
   mainSiteUrl: "https://www.dosahut.net.au/",
+  instagramUrl: "https://www.instagram.com/dosahutaspley/?hl=en",
+  // TODO: replace these three with the real Aspley store links before launch.
+  tapTouchUrl: "#",
+  uberEatsUrl: "#",
+  doorDashUrl: "#",
 };
 
 export const NAV_LINKS = [
@@ -22,9 +29,10 @@ export const NAV_LINKS = [
 ];
 
 export const HOURS = [
-  { day: "Mon – Thu", time: "11:00 am – 9:30 pm" },
-  { day: "Fri – Sat", time: "11:00 am – 10:00 pm" },
-  { day: "Sunday", time: "12:00 pm – 9:30 pm" },
+  { day: "Mon – Thu", time: "11:00 am – 3:00 pm, 5:00 pm – 10:00 pm" },
+  { day: "Friday", time: "11:00 am – 10:00 pm" },
+  { day: "Saturday", time: "9:00 am – 10:00 pm" },
+  { day: "Sunday", time: "11:00 am – 10:00 pm" },
 ];
 
 export type Dish = {
@@ -53,13 +61,13 @@ export const DISHES: Dish[] = [
     category: "Biryani",
     name: "Chicken 65 Biryani",
     image: "/images/dish-chicken-65-biryani.jpg",
-    alt: "Fragrant biryani rice garnished with peas and herbs",
+    alt: "Chicken 65 biryani served in a copper handi with raita and curry on the side",
   },
   {
     category: "Curries",
     name: "Butter Chicken",
     image: "/images/dish-butter-chicken.jpg",
-    alt: "Creamy butter chicken curry in a cast iron bowl",
+    alt: "Creamy butter chicken curry garnished with mint",
   },
   {
     category: "Tandoori Starters",

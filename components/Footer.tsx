@@ -22,11 +22,11 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-9 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10">
         <div className="flex flex-col gap-4 md:gap-5">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             alt="Dosa Hut logo"
             width={280}
             height={117}
-            className="h-11 w-auto rounded-md md:h-[50px]"
+            className="h-11 w-auto self-start md:h-[50px]"
           />
           <p className="max-w-[280px] text-sm leading-relaxed text-cream-50/60">
             Authentic South Indian &amp; multi-cuisine favourites, freshly made

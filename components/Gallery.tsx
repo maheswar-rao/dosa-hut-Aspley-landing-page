@@ -28,7 +28,7 @@ export function Gallery() {
         </p>
       </div>
 
-      <div className="grid w-full max-w-[1200px] grid-cols-2 gap-4 md:grid-cols-4 md:grid-rows-2 md:gap-5">
+      <div className="grid w-full max-w-[1200px] grid-cols-2 gap-4 md:h-[560px] md:grid-cols-4 md:grid-rows-2 md:gap-5">
         {GALLERY.map((item, i) => (
           <div
             key={item.label}

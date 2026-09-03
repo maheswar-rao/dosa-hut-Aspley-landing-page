@@ -14,11 +14,11 @@ export function Navbar() {
       <div className="flex items-center justify-between px-5 py-5 md:px-16 md:py-6">
         <a href="#top" className="shrink-0">
           <Image
-            src="/images/logo.jpg"
+            src="/images/logo.png"
             alt="Dosa Hut logo"
             width={280}
             height={117}
-            className="h-10 w-auto rounded-md md:h-14"
+            className="h-10 w-auto md:h-14"
             priority
           />
         </a>

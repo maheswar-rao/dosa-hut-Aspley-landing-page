@@ -10,9 +10,9 @@ import "@fontsource/manrope/800.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dosa Hut Aspley | Authentic Indian Flavours",
+  title: "Dosa Hut Sunshine Coast | Authentic Indian Flavours",
   description:
-    "Authentic South Indian favourites, biryanis, curries, dosas and more at Dosa Hut Aspley. Order online for pickup or delivery, Shop 6, 46 Gayford Street, Aspley QLD 4032.",
+    "Authentic South Indian favourites, biryanis, curries, dosas and more at Dosa Hut Sunshine Coast. Order online for pickup or delivery, 5 Lutana Street, Buddina QLD 4575.",
 };
 
 export default function RootLayout({

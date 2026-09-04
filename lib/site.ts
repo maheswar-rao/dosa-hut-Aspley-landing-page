@@ -1,24 +1,23 @@
 // Central place for anything that might change — copy, links, hours.
-// Swap ORDER_URL for the real Dosa Hut Aspley ordering link before launch if this changes.
 
 export const SITE = {
-  name: "Dosa Hut Aspley",
-  orderUrl: "https://aspley.dosahut.net.au/",
-  menuPdfUrl: "/menu/dosa-hut-aspley-menu.pdf",
-  phoneDisplay: "0466 977 674",
-  phoneHref: "tel:+61466977674",
-  addressLine1: "Shop 6 & 7, 46 Gayford Street",
-  addressLine2: "Aspley, QLD 4034",
-  addressFull: "Shop 6 & 7, 46 Gayford Street, Aspley QLD 4034",
-  directionsUrl: "https://maps.app.goo.gl/pUY3J4EjFzS7JB2R9",
+  name: "Dosa Hut Sunshine Coast",
+  orderUrl: "https://sunshinecoast.dosahut.net.au/",
+  menuPdfUrl:
+    "https://www.dosahut.net.au/wp-content/uploads/2026/06/DosaHut_Menu-sunshine-coast-9-10-2025.pdf",
+  phoneDisplay: "0423 841 991",
+  phoneHref: "tel:+61423841991",
+  addressLine1: "5 Lutana Street",
+  addressLine2: "Buddina, QLD 4575",
+  addressFull: "5 Lutana Street, Buddina QLD 4575",
+  directionsUrl: "https://maps.app.goo.gl/qAKhpzpaSLfeV4z79",
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Shop+6+%26+7%2F46+Gayford+St+Aspley+QLD+4034&output=embed",
+    "https://www.google.com/maps?q=5+Lutana+St+Buddina+QLD+4575&output=embed",
   mainSiteUrl: "https://www.dosahut.net.au/",
-  instagramUrl: "https://www.instagram.com/dosahutaspley/?hl=en",
-  // TODO: replace these three with the real Aspley store links before launch.
-  tapTouchUrl: "#",
-  uberEatsUrl: "#",
-  doorDashUrl: "#",
+  instagramUrl: "https://www.instagram.com/dosahut_sunshinecoast/?hl=en",
+  facebookUrl: "https://www.facebook.com/people/Dosa-Hut-Sunshine-Coast/61573654335879/",
+  uberEatsUrl: "https://www.ubereats.com/au/store/dosa-hut-sunshine-coast/DWfGOBKaTI2wGq4K5eUU8A",
+  doorDashUrl: "https://www.doordash.com/store/dosa-hut-sunshine-coast-buddina-34065779/69533746/",
 };
 
 export const NAV_LINKS = [
@@ -29,10 +28,8 @@ export const NAV_LINKS = [
 ];
 
 export const HOURS = [
-  { day: "Mon – Thu", time: "11:00 am – 3:00 pm, 5:00 pm – 10:00 pm" },
-  { day: "Friday", time: "11:00 am – 10:00 pm" },
-  { day: "Saturday", time: "9:00 am – 10:00 pm" },
-  { day: "Sunday", time: "11:00 am – 10:00 pm" },
+  { day: "Mon – Thu", time: "11:00 am – 2:30 pm, 4:00 pm – 9:30 pm" },
+  { day: "Fri – Sun", time: "11:00 am – 9:30 pm" },
 ];
 
 export type Dish = {
@@ -125,19 +122,19 @@ export type Feature = {
 
 export const FEATURES: Feature[] = [
   {
-    title: "Authentic Indian Flavours",
+    title: "Made From Scratch",
     description:
-      "Traditional recipes and bold spice blends, cooked the way they're meant to taste.",
+      "Every dish prepared from scratch using real produce and traditional recipes.",
   },
   {
-    title: "Freshly Prepared",
+    title: "Aromatic Biryanis",
     description:
-      "Every dish is made fresh to order, never sitting around waiting for you.",
+      "Perfectly spiced and sure to delight from the first bite.",
   },
   {
-    title: "Dine-In & Takeaway",
+    title: "90+ Dosa Varieties",
     description:
-      "Settle in at Aspley, or grab your favourites to enjoy at home — your call.",
+      "Golden and crispy outside, soft inside — there's a dosa for every craving.",
   },
   {
     title: "Easy Online Ordering",

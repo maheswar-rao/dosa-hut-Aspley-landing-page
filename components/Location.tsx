@@ -13,7 +13,7 @@ export function Location() {
               Visit Us
             </span>
             <h2 className="font-display text-[32px] font-semibold text-maroon-800 md:text-[44px]">
-              Dosa Hut Aspley
+              Dosa Hut Sunshine Coast
             </h2>
           </div>
 
@@ -76,7 +76,7 @@ export function Location() {
           <div className="relative h-[220px] w-full overflow-hidden rounded-[22px] border border-maroon-800/10 bg-cream-200 md:h-[280px]">
             <iframe
               src={SITE.mapEmbedUrl}
-              title="Dosa Hut Aspley location map"
+              title="Dosa Hut Sunshine Coast location map"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 h-full w-full border-0"

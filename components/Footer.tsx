@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "./Icons";
+import { FacebookIcon, InstagramIcon } from "./Icons";
 import { SITE } from "@/lib/site";
 
 const EXPLORE_LINKS = [
@@ -10,10 +10,8 @@ const EXPLORE_LINKS = [
 ];
 
 const SOCIALS = [
-  { Icon: FacebookIcon, label: "Facebook", href: "#" },
+  { Icon: FacebookIcon, label: "Facebook", href: SITE.facebookUrl },
   { Icon: InstagramIcon, label: "Instagram", href: SITE.instagramUrl },
-  { Icon: YoutubeIcon, label: "YouTube", href: "#" },
-  { Icon: LinkedinIcon, label: "LinkedIn", href: "#" },
 ];
 
 export function Footer() {
@@ -30,7 +28,7 @@ export function Footer() {
           />
           <p className="max-w-[280px] text-sm leading-relaxed text-cream-50/60">
             Authentic South Indian &amp; multi-cuisine favourites, freshly made
-            for Aspley.
+            for the Sunshine Coast.
           </p>
           <div className="flex gap-3">
             {SOCIALS.map(({ Icon, label, href }) => (

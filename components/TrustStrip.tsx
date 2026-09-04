@@ -1,7 +1,7 @@
 const ITEMS = [
   "PART OF THE DOSA HUT FAMILY",
   "25+ LOCATIONS ACROSS AUSTRALIA",
-  "NOW SERVING ASPLEY",
+  "NOW SERVING SUNSHINE COAST",
 ];
 
 export function TrustStrip() {

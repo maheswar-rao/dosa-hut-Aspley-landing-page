@@ -10,17 +10,18 @@ export function FoodShowcase() {
           What To Order
         </span>
         <h2 className="font-display text-[34px] font-semibold text-maroon-800 md:text-[46px]">
-          Aspley Favourites
+          Sunshine Coast Favourites
         </h2>
         <p className="text-sm leading-relaxed text-ink-600 md:text-base">
-          A short list of the dishes Aspley keeps coming back for &mdash; from
-          paper-thin dosas to slow-simmered curries.
+          A short list of the dishes Buddina keeps coming back for &mdash;
+          golden, crispy dosas to slow-simmered curries, made the way
+          they&rsquo;re meant to taste.
         </p>
         <p className="text-sm leading-relaxed text-ink-600 md:text-base">
-          Dosa Hut Aspley brings fine-dining Indian cuisine to Gayford Street
-          &mdash; over 100 dishes spanning South Indian classics, biryanis,
-          tandoori grills, curries, and street-side chaat, part of Dosa
-          Hut&rsquo;s 25+ branch family across Australia.
+          Dosa Hut Sunshine Coast brings nearly two decades of passion,
+          flavour, and excellence to Buddina &mdash; over 90 dosa varieties
+          alongside biryanis, tandoori grills, curries, and street-side chaat,
+          part of one of Australia&rsquo;s fastest-growing restaurant chains.
         </p>
       </div>
 

@@ -1,12 +1,8 @@
-import { Button } from "./Button";
+import Image from "next/image";
 import { SITE } from "@/lib/site";
 
-const PLATFORMS = [
-  { label: "Order Direct", href: SITE.orderUrl },
-  { label: "TapTouch", href: SITE.tapTouchUrl },
-  { label: "Uber Eats", href: SITE.uberEatsUrl },
-  { label: "DoorDash", href: SITE.doorDashUrl },
-];
+const badgeClasses =
+  "flex h-[52px] w-full items-center justify-center rounded-full border border-maroon-800/15 bg-white px-7 shadow-[0_4px_14px_-6px_rgba(58,13,13,0.2)] transition-transform hover:scale-[1.02] sm:w-auto";
 
 export function OrderPlatforms() {
   return (
@@ -20,19 +16,26 @@ export function OrderPlatforms() {
         </h2>
       </div>
 
-      <div className="grid w-full max-w-[720px] grid-cols-2 gap-3 md:flex md:flex-wrap md:justify-center">
-        {PLATFORMS.map((platform) => (
-          <Button
-            key={platform.label}
-            href={platform.href}
-            variant="outline-dark"
-            size="md"
-            full
-            className="md:w-auto"
-          >
-            {platform.label.toUpperCase()}
-          </Button>
-        ))}
+      <div className="flex w-full max-w-[560px] flex-col items-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
+        <a href={SITE.uberEatsUrl} target="_blank" rel="noopener noreferrer" className={badgeClasses}>
+          <Image
+            src="/images/logo-ubereats.png"
+            alt="Order on Uber Eats"
+            width={120}
+            height={45}
+            className="h-[26px] w-auto"
+          />
+        </a>
+
+        <a href={SITE.doorDashUrl} target="_blank" rel="noopener noreferrer" className={badgeClasses}>
+          <Image
+            src="/images/logo-doordash.png"
+            alt="Order on DoorDash"
+            width={120}
+            height={45}
+            className="h-[26px] w-auto"
+          />
+        </a>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ const mobileHeight = ["h-[220px]", "h-[150px]", "h-[150px]", "h-[180px]"];
 
 export function Gallery() {
   return (
-    <section className="flex w-full flex-col items-center gap-8 px-5 pb-14 md:gap-14 md:px-16 md:pb-[110px]">
+    <section className="flex w-full flex-col items-center gap-6 px-5 pb-10 md:gap-9 md:px-16 md:pb-16">
       <div className="flex max-w-[620px] flex-col items-center gap-3 text-center md:gap-4">
         <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
           The Experience

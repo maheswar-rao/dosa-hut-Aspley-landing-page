@@ -5,7 +5,7 @@ const ICONS = [LeafIcon, FlameIcon, UtensilsIcon, DeviceIcon];
 
 export function WhyUs() {
   return (
-    <section id="why-us" className="flex w-full flex-col items-center gap-9 bg-maroon-900 px-5 py-14 md:gap-16 md:px-16 md:py-[100px]">
+    <section id="why-us" className="flex w-full flex-col items-center gap-6 bg-maroon-900 px-5 py-10 md:gap-10 md:px-16 md:py-16">
       <div className="flex max-w-[600px] flex-col items-center gap-3 text-center md:gap-4">
         <span className="text-xs font-bold tracking-[0.16em] text-peach-400 uppercase md:text-[13px] md:tracking-[0.18em]">
           Why Dosa Hut Sunshine Coast

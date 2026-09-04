@@ -1,60 +1,30 @@
-import { Navbar } from "./Navbar";
+import Image from "next/image";
 import { Button } from "./Button";
-import { HeroBackground } from "./HeroBackground";
 import { ArrowRightIcon, PinIcon } from "./Icons";
 import { SITE } from "@/lib/site";
 
-const HERO_SLIDES = [
-  {
-    src: "/images/hero-food.jpg",
-    alt: "A spread of Indian curries, tandoori chicken, naan and rice",
-    position: "object-[60%_40%]",
-  },
-  {
-    src: "/images/venue-banquet.jpg",
-    alt: "Dosa Hut banquet hall set up for an event",
-    position: "object-center",
-  },
-  {
-    src: "/images/gallery-multicuisine.jpg",
-    alt: "A spread of multi-cuisine dishes on a wooden table",
-    position: "object-center",
-  },
-  {
-    src: "/images/gallery-evening.jpg",
-    alt: "Warmly lit restaurant dining area in the evening",
-    position: "object-center",
-  },
-  {
-    src: "/images/gallery-lounge.jpg",
-    alt: "Relaxed lounge and bar seating area",
-    position: "object-center",
-  },
-];
-
 export function Hero() {
   return (
-    <section id="top" className="relative h-[620px] w-full overflow-hidden bg-maroon-900 md:h-[780px]">
-      <HeroBackground slides={HERO_SLIDES} />
-      <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/90 via-maroon-950/70 to-maroon-950/95 md:bg-gradient-to-r md:from-maroon-950/95 md:via-maroon-900/50 md:to-maroon-900/10" />
-
-      <Navbar />
+    <section id="top" className="relative h-[640px] w-full overflow-hidden bg-maroon-900 md:h-[760px]">
+      <Image
+        src="/images/hero-food.jpg"
+        alt="A spread of Indian curries, tandoori chicken, naan and rice"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[60%_40%]"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/90 via-maroon-950/70 to-maroon-950/95 md:bg-gradient-to-r md:from-maroon-950/95 md:via-maroon-900/55 md:to-maroon-900/15" />
 
       <div className="absolute inset-x-5 bottom-8 flex flex-col gap-4 md:inset-x-16 md:top-0 md:bottom-0 md:max-w-[640px] md:justify-center md:gap-6">
-        <div className="flex items-center gap-2.5">
-          <span className="h-2 w-2 rotate-45 bg-orange-500" />
-          <span className="text-xs font-bold tracking-[0.16em] text-peach-400 uppercase md:text-[13px] md:tracking-[0.18em]">
-            Dosa Hut Sunshine Coast
-          </span>
-        </div>
-
-        <h1 className="font-display text-[42px] leading-[1.1] font-semibold text-cream-0 md:text-[66px] md:leading-[1.08]">
+        <h1 className="font-display text-[42px] leading-[1.1] font-semibold text-cream-0 md:text-[64px] md:leading-[1.08]">
           Authentic Indian Flavours on the Sunshine Coast
         </h1>
 
-        <p className="max-w-[520px] text-[15px] leading-relaxed text-cream-50/85 md:text-lg">
-          Experience delicious South Indian favourites, biryanis, curries, dosas
-          and more &mdash; made fresh, served warm, right here in Buddina.
+        <p className="max-w-[540px] text-[15px] leading-relaxed text-cream-50/85 md:text-lg">
+          Nearly two decades of passion, flavour, and excellence &mdash; over 90
+          dosa varieties alongside biryanis, tandoori grills, curries, and
+          street-side chaat, made fresh and served warm right here in Buddina.
         </p>
 
         <div className="mt-1 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-2">

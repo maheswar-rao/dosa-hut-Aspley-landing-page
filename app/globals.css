@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbf3ea;
+  --background: #fff7f4;
   --foreground: #241512;
 }
 
@@ -12,20 +12,21 @@
   --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
   --font-display: 'Cormorant Garamond', Georgia, serif;
 
-  /* Dosa Hut brand palette, lifted from dosahut.net.au */
-  --color-maroon-950: #250808;
-  --color-maroon-900: #2b0909;
-  --color-maroon-800: #3a0d0d;
-  --color-maroon-700: #4d1212;
+  /* Dosa Hut brand palette — exact hex values pulled from dosahut.net.au's
+     live CSS (nav/footer background #570B0B, primary orange #F15A27). */
+  --color-maroon-950: #3d0707;
+  --color-maroon-900: #570b0b;
+  --color-maroon-800: #6b0f0f;
+  --color-maroon-700: #821414;
 
-  --color-orange-600: #cf4f1f;
-  --color-orange-500: #e8622c;
-  --color-peach-400: #f2a574;
+  --color-orange-600: #d94e1d;
+  --color-orange-500: #f15a27;
+  --color-peach-400: #f79473;
 
   --color-cream-0: #fffdfa;
-  --color-cream-50: #fbf3ea;
-  --color-cream-100: #f5e9da;
-  --color-cream-200: #efdfc9;
+  --color-cream-50: #fff7f4;
+  --color-cream-100: #f9ece4;
+  --color-cream-200: #f2ddd0;
 
   --color-ink-900: #241512;
   --color-ink-600: #5c4a44;

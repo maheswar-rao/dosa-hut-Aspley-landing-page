@@ -1,10 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Button } from "./Button";
 import { DISHES, DISH_CATEGORIES, SITE } from "@/lib/site";
 
 export function FoodShowcase() {
+  const [active, setActive] = useState<(typeof DISH_CATEGORIES)[number]>(DISH_CATEGORIES[0]);
+  const visibleDishes = DISHES.filter((dish) => dish.category === active);
+
   return (
-    <section id="menu" className="flex w-full flex-col items-center gap-9 px-5 py-14 md:gap-14 md:px-16 md:py-[110px]">
+    <section id="menu" className="flex w-full flex-col items-center gap-6 px-5 py-10 md:gap-9 md:px-16 md:py-16">
       <div className="flex max-w-[620px] flex-col items-center gap-3 text-center md:gap-4">
         <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
           What To Order
@@ -12,50 +18,49 @@ export function FoodShowcase() {
         <h2 className="font-display text-[34px] font-semibold text-maroon-800 md:text-[46px]">
           Sunshine Coast Favourites
         </h2>
-        <p className="text-sm leading-relaxed text-ink-600 md:text-base">
-          A short list of the dishes Buddina keeps coming back for &mdash;
-          golden, crispy dosas to slow-simmered curries, made the way
-          they&rsquo;re meant to taste.
-        </p>
-        <p className="text-sm leading-relaxed text-ink-600 md:text-base">
-          Dosa Hut Sunshine Coast brings nearly two decades of passion,
-          flavour, and excellence to Buddina &mdash; over 90 dosa varieties
-          alongside biryanis, tandoori grills, curries, and street-side chaat,
-          part of one of Australia&rsquo;s fastest-growing restaurant chains.
-        </p>
       </div>
 
       <div className="flex w-full items-center gap-2.5 overflow-x-auto pb-1 md:w-auto md:flex-wrap md:justify-center md:overflow-visible">
-        {DISH_CATEGORIES.map((category, i) => (
-          <span
+        {DISH_CATEGORIES.map((category) => (
+          <button
             key={category}
-            className={`shrink-0 rounded-full border px-4.5 py-2.5 text-[13px] font-bold whitespace-nowrap md:px-6 md:py-3 md:text-sm ${
-              i === 0
+            type="button"
+            onClick={() => setActive(category)}
+            className={`shrink-0 rounded-full border px-4.5 py-2.5 text-[13px] font-bold whitespace-nowrap transition-colors md:px-6 md:py-3 md:text-sm ${
+              category === active
                 ? "border-maroon-800 bg-maroon-800 text-cream-50"
-                : "border-maroon-800/20 text-maroon-700"
+                : "border-maroon-800/20 text-maroon-700 hover:border-maroon-800/40"
             }`}
           >
             {category}
-          </span>
+          </button>
         ))}
       </div>
 
-      <div className="grid w-full max-w-[1200px] grid-cols-1 gap-5 sm:grid-cols-2 md:gap-7 lg:grid-cols-3">
-        {DISHES.map((dish) => (
+      <div className="grid w-full max-w-[1200px] grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
+        {visibleDishes.map((dish) => (
           <div
             key={dish.name}
             className="overflow-hidden rounded-[22px] border border-maroon-800/[0.06] bg-cream-0 shadow-[0_18px_34px_-20px_rgba(58,13,13,0.28)]"
           >
-            <div className="relative h-[210px] w-full md:h-[230px]">
-              <Image
-                src={dish.image}
-                alt={dish.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 400px"
-                className="object-cover"
-              />
+            <div className="relative h-[150px] w-full md:h-[170px]">
+              {dish.image ? (
+                <Image
+                  src={dish.image}
+                  alt={dish.alt ?? dish.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-maroon-800 to-maroon-900">
+                  <span className="font-display text-2xl font-semibold text-cream-50/90">
+                    {dish.name}
+                  </span>
+                </div>
+              )}
             </div>
-            <div className="flex flex-col gap-1.5 px-6 pt-5 pb-6">
+            <div className="flex flex-col gap-1 px-5 pt-4 pb-5">
               <span className="text-[11px] font-bold tracking-[0.14em] text-orange-500 uppercase">
                 {dish.category}
               </span>
@@ -94,7 +99,7 @@ export function FoodShowcase() {
       </div>
 
       <Button href={SITE.menuPdfUrl} variant="outline-dark" size="md" external>
-        VIEW FULL MENU (PDF)
+        DOWNLOAD FULL MENU (PDF)
       </Button>
     </section>
   );

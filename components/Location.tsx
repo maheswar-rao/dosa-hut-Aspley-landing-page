@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { Button } from "./Button";
 import { ChevronRightIcon, ClockIcon, PhoneIcon, PinIcon } from "./Icons";
 import { HOURS, SITE } from "@/lib/site";
 
 export function Location() {
   return (
-    <section id="location" className="flex w-full justify-center bg-cream-100 px-5 py-14 md:px-16 md:py-[110px]">
-      <div className="grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-20">
+    <section id="location" className="flex w-full justify-center bg-cream-100 px-5 py-10 md:px-16 md:py-16">
+      <div className="grid w-full max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-14">
         <div className="flex flex-col gap-6 md:gap-6.5">
           <div className="flex flex-col gap-3 md:gap-4">
             <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
@@ -63,25 +62,14 @@ export function Location() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <div className="relative h-[220px] w-full overflow-hidden rounded-[22px] shadow-[0_24px_48px_-24px_rgba(58,13,13,0.35)] md:h-[300px]">
-            <Image
-              src="/images/venue-banquet.jpg"
-              alt="Dosa Hut banquet hall set up for an event"
-              fill
-              sizes="(max-width: 768px) 100vw, 560px"
-              className="object-cover"
-            />
-          </div>
-          <div className="relative h-[220px] w-full overflow-hidden rounded-[22px] border border-maroon-800/10 bg-cream-200 md:h-[280px]">
-            <iframe
-              src={SITE.mapEmbedUrl}
-              title="Dosa Hut Sunshine Coast location map"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 h-full w-full border-0"
-            />
-          </div>
+        <div className="relative h-[420px] w-full overflow-hidden rounded-[22px] border border-maroon-800/10 bg-cream-200 shadow-[0_24px_48px_-24px_rgba(58,13,13,0.35)] md:h-[560px]">
+          <iframe
+            src={SITE.mapEmbedUrl}
+            title="Dosa Hut Sunshine Coast location map"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="absolute inset-0 h-full w-full border-0"
+          />
         </div>
       </div>
     </section>

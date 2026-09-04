@@ -16,7 +16,7 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="flex w-full flex-col gap-10 bg-maroon-950 px-5 pt-12 pb-7 md:gap-14 md:px-16 md:pt-20 md:pb-9">
+    <footer className="flex w-full flex-col gap-7 bg-maroon-900 px-5 pt-9 pb-6 md:gap-9 md:px-16 md:pt-14 md:pb-7">
       <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-9 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-10">
         <div className="flex flex-col gap-4 md:gap-5">
           <Image
@@ -24,10 +24,10 @@ export function Footer() {
             alt="Dosa Hut logo"
             width={280}
             height={117}
-            className="h-11 w-auto self-start md:h-[50px]"
+            className="h-14 w-auto self-start md:h-[64px]"
           />
           <p className="max-w-[280px] text-sm leading-relaxed text-cream-50/60">
-            Authentic South Indian &amp; multi-cuisine favourites, freshly made
+            Authentic Indian &amp; multi-cuisine favourites, freshly made
             for the Sunshine Coast.
           </p>
           <div className="flex gap-3">
@@ -63,7 +63,7 @@ export function Footer() {
           <a href={SITE.orderUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
             Order Online
           </a>
-          <a href={SITE.mainSiteUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
+          <a href="#catering" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
             Catering
           </a>
           <a href={SITE.mainSiteUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
@@ -87,6 +87,42 @@ export function Footer() {
             Get Directions
           </a>
         </nav>
+      </div>
+
+      <div className="mx-auto h-px w-full max-w-[1200px] bg-cream-50/10" />
+
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-3 md:flex-row md:justify-center md:gap-5">
+        <span className="text-sm font-bold text-cream-50/70">Available to order on</span>
+        <div className="flex gap-3">
+          <a
+            href={SITE.uberEatsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-16 items-center justify-center rounded-full bg-white px-8"
+          >
+            <Image
+              src="/images/logo-ubereats.png"
+              alt="Order on Uber Eats"
+              width={120}
+              height={45}
+              className="h-12 w-auto"
+            />
+          </a>
+          <a
+            href={SITE.doorDashUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-16 items-center justify-center rounded-full bg-white px-8"
+          >
+            <Image
+              src="/images/logo-doordash.png"
+              alt="Order on DoorDash"
+              width={120}
+              height={45}
+              className="h-12 w-auto"
+            />
+          </a>
+        </div>
       </div>
 
       <div className="mx-auto h-px w-full max-w-[1200px] bg-cream-50/10" />

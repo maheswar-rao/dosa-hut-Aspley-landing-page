@@ -6,7 +6,6 @@ const EXPLORE_LINKS = [
   { label: "Menu", href: "#menu" },
   { label: "About Us", href: "#why-us" },
   { label: "Our Story", href: "#our-story" },
-  { label: "Careers", href: SITE.mainSiteUrl },
 ];
 
 const SOCIALS = [
@@ -46,7 +45,7 @@ export function Footer() {
         </div>
 
         <nav className="flex flex-col gap-3.5">
-          <span className="text-[13px] font-bold tracking-[0.1em] text-cream-50/40 uppercase">
+          <span className="text-sm font-extrabold tracking-[0.1em] text-peach-400 uppercase">
             Explore
           </span>
           {EXPLORE_LINKS.map((link) => (
@@ -57,7 +56,7 @@ export function Footer() {
         </nav>
 
         <nav className="flex flex-col gap-3.5">
-          <span className="text-[13px] font-bold tracking-[0.1em] text-cream-50/40 uppercase">
+          <span className="text-sm font-extrabold tracking-[0.1em] text-peach-400 uppercase">
             Order
           </span>
           <a href={SITE.orderUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
@@ -66,13 +65,10 @@ export function Footer() {
           <a href="#catering" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
             Catering
           </a>
-          <a href={SITE.mainSiteUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-cream-50/70 hover:text-cream-50">
-            Feedback
-          </a>
         </nav>
 
         <nav className="flex flex-col gap-3.5">
-          <span className="text-[13px] font-bold tracking-[0.1em] text-cream-50/40 uppercase">
+          <span className="text-sm font-extrabold tracking-[0.1em] text-peach-400 uppercase">
             Visit
           </span>
           <span className="text-sm font-medium text-cream-50/70">

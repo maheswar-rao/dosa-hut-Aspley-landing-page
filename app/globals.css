@@ -46,3 +46,31 @@ body {
 .font-heading {
   font-family: var(--font-heading);
 }
+
+@keyframes dish-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes dish-info-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.dish-info-enter {
+  animation: dish-info-enter 500ms ease-out;
+}
+
+@keyframes category-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.category-enter {
+  animation: category-enter 500ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dish-info-enter,
+  .category-enter {
+    animation: none;
+  }
+}

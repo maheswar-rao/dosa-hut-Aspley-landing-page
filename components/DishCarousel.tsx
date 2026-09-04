@@ -1,0 +1,148 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { ChevronRightIcon } from "./Icons";
+import type { Dish } from "@/lib/site";
+
+const DISPLAY_MS = 2000;
+const TRANSITION_MS = 700;
+
+export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: string }) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const count = dishes.length;
+
+  useEffect(() => {
+    if (paused || count < 2) return;
+    const id = setTimeout(() => setIndex((i) => (i + 1) % count), DISPLAY_MS);
+    return () => clearTimeout(id);
+  }, [index, paused, count]);
+
+  if (count === 0) return null;
+  const dish = dishes[index];
+
+  function go(delta: number) {
+    setIndex((i) => (i + delta + count) % count);
+  }
+
+  function openOrder() {
+    window.open(orderUrl, "_blank", "noopener,noreferrer");
+  }
+
+  return (
+    <div className="w-full max-w-[1200px]">
+      <div
+        className="relative mx-auto h-[300px] w-full overflow-hidden sm:h-[360px] md:h-[440px]"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        {dishes.map((d, i) => {
+          let diff = i - index;
+          diff = ((diff % count) + count) % count;
+          if (diff > count / 2) diff -= count;
+
+          const isCurrent = diff === 0;
+          const isSide = Math.abs(diff) === 1;
+          const translate = diff * 56;
+          const scale = isCurrent ? 1 : isSide ? 0.78 : 0.62;
+          const opacity = isCurrent ? 1 : isSide ? 0.35 : 0;
+
+          return (
+            <div
+              key={d.name}
+              role={isCurrent ? "link" : undefined}
+              tabIndex={isCurrent ? 0 : -1}
+              onClick={isCurrent ? openOrder : undefined}
+              onKeyDown={
+                isCurrent
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") openOrder();
+                    }
+                  : undefined
+              }
+              aria-label={isCurrent ? `Order ${d.name} online` : undefined}
+              aria-hidden={!isCurrent}
+              className={`absolute inset-y-0 left-1/2 flex w-[78%] max-w-[560px] items-center justify-center transition-all ease-out sm:w-[62%] ${
+                isCurrent ? "cursor-pointer" : ""
+              }`}
+              style={{
+                transform: `translateX(calc(-50% + ${translate}%)) scale(${scale})`,
+                opacity,
+                transitionDuration: `${TRANSITION_MS}ms`,
+                zIndex: isCurrent ? 20 : isSide ? 10 : 0,
+                pointerEvents: isCurrent ? "auto" : "none",
+              }}
+            >
+              <div className="group relative h-full w-full overflow-hidden rounded-[26px] shadow-[0_28px_60px_-24px_rgba(58,13,13,0.45)]">
+                {d.image ? (
+                  <Image
+                    src={d.image}
+                    alt={d.alt ?? d.name}
+                    fill
+                    sizes="(max-width: 768px) 90vw, 560px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    priority={i === 0}
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-maroon-800 to-maroon-900">
+                    <span className="font-display px-6 text-center text-3xl font-semibold text-cream-50/90 md:text-4xl">
+                      {d.name}
+                    </span>
+                  </div>
+                )}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-950/75 via-maroon-950/5 to-transparent" />
+              </div>
+            </div>
+          );
+        })}
+
+        {count > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous dish"
+              onClick={() => go(-1)}
+              className="absolute top-1/2 left-1 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:left-3"
+            >
+              <ChevronRightIcon size={15} className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next dish"
+              onClick={() => go(1)}
+              className="absolute top-1/2 right-1 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:right-3"
+            >
+              <ChevronRightIcon size={15} />
+            </button>
+          </>
+        )}
+      </div>
+
+      <div key={dish.name} className="dish-info-enter mt-6 flex flex-col items-center gap-1.5 text-center">
+        <span className="text-[11px] font-bold tracking-[0.16em] text-orange-500 uppercase">
+          {dish.category}
+        </span>
+        <span className="font-display text-2xl font-semibold text-ink-900 md:text-[32px]">
+          {dish.name}
+        </span>
+        <span className="text-lg font-bold text-maroon-800 md:text-xl">{dish.price}</span>
+      </div>
+
+      {count > 1 && (
+        <div className="mx-auto mt-4 flex w-full max-w-[220px] items-center gap-3">
+          <span className="font-heading shrink-0 text-[11px] font-semibold tracking-wide text-ink-600 tabular-nums">
+            {String(index + 1).padStart(2, "0")}/{String(count).padStart(2, "0")}
+          </span>
+          <div className="h-[3px] flex-1 overflow-hidden rounded-full bg-maroon-800/10">
+            <div
+              key={`${dish.name}-${index}`}
+              className="h-full w-full origin-left rounded-full bg-orange-500"
+              style={{ animation: paused ? "none" : `dish-progress ${DISPLAY_MS}ms linear forwards` }}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

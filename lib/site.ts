@@ -120,33 +120,15 @@ export const DISHES: Dish[] = [
   { category: "Indian Street Food", name: "Vada" },
 ];
 
-export type GalleryItem = {
+export type Stat = {
+  value: string;
   label: string;
-  image: string;
-  alt: string;
 };
 
-export const GALLERY: GalleryItem[] = [
-  {
-    label: "Evening Ambience",
-    image: "/images/gallery-evening.jpg",
-    alt: "Warmly lit restaurant dining area in the evening",
-  },
-  {
-    label: "Al Fresco Dining",
-    image: "/images/gallery-alfresco.jpg",
-    alt: "Outdoor dining table with greenery and place settings",
-  },
-  {
-    label: "Relaxed Lounge",
-    image: "/images/gallery-lounge.jpg",
-    alt: "Relaxed lounge and bar seating area",
-  },
-  {
-    label: "Multi-Cuisine Spread",
-    image: "/images/gallery-multicuisine.jpg",
-    alt: "A spread of multi-cuisine dishes on a wooden table",
-  },
+export const STORY_STATS: Stat[] = [
+  { value: "25+", label: "Branches Across Australia" },
+  { value: "7M+", label: "Customers Served Yearly" },
+  { value: "2025", label: "Culinary & Hospitality Award" },
 ];
 
 export type Feature = {

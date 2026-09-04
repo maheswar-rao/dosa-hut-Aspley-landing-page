@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 const EXPLORE_LINKS = [
   { label: "Menu", href: "#menu" },
   { label: "About Us", href: "#why-us" },
-  { label: "Gallery", href: "#why-us" },
+  { label: "Our Story", href: "#our-story" },
   { label: "Careers", href: SITE.mainSiteUrl },
 ];
 

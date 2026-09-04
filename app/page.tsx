@@ -2,7 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { TrustStrip } from "@/components/TrustStrip";
 import { FoodShowcase } from "@/components/FoodShowcase";
-import { Gallery } from "@/components/Gallery";
+import { OurStory } from "@/components/OurStory";
 import { WhyUs } from "@/components/WhyUs";
 import { Catering } from "@/components/Catering";
 import { Location } from "@/components/Location";
@@ -15,7 +15,7 @@ export default function Home() {
       <Hero />
       <TrustStrip />
       <FoodShowcase />
-      <Gallery />
+      <OurStory />
       <WhyUs />
       <Catering />
       <Location />

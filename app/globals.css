@@ -11,6 +11,7 @@
 
   --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
   --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
 
   /* Dosa Hut brand palette — exact hex values pulled from dosahut.net.au's
      live CSS (nav/footer background #570B0B, primary orange #F15A27). */
@@ -40,4 +41,8 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
 }

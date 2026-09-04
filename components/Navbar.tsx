@@ -35,7 +35,7 @@ export function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-[13px] font-bold tracking-[0.04em] text-cream-50 uppercase hover:text-peach-400"
+              className="font-heading text-[15px] font-semibold tracking-wide text-cream-50 uppercase hover:text-peach-400"
             >
               {link.label}
             </a>
@@ -45,7 +45,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOrderOpen((v) => !v)}
-              className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-[13.5px] font-bold tracking-wide text-cream-0 transition-colors hover:bg-orange-600"
+              className="font-heading inline-flex items-center gap-2 rounded-full bg-orange-500 px-7 py-3.5 text-[15px] font-semibold tracking-wide text-cream-0 transition-colors hover:bg-orange-600"
             >
               ORDER ONLINE
               <ChevronRightIcon size={13} className={`transition-transform ${orderOpen ? "-rotate-90" : "rotate-90"}`} />
@@ -102,14 +102,14 @@ export function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-[13px] font-bold tracking-[0.04em] text-cream-50 uppercase hover:bg-cream-50/10"
+              className="font-heading rounded-lg px-3 py-2.5 text-[15px] font-semibold tracking-wide text-cream-50 uppercase hover:bg-cream-50/10"
             >
               {link.label}
             </a>
           ))}
 
           <div className="mt-2 flex flex-col gap-1 rounded-2xl bg-cream-0 p-2">
-            <span className="px-3 pt-1.5 pb-0.5 text-[11px] font-bold tracking-[0.1em] text-maroon-800/50 uppercase">
+            <span className="font-heading px-3 pt-1.5 pb-0.5 text-[11px] font-semibold tracking-[0.1em] text-maroon-800/50 uppercase">
               Order Online
             </span>
             {ORDER_PLATFORMS.map((platform) => (

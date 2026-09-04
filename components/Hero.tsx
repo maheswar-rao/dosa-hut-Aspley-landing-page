@@ -17,11 +17,11 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/75 via-maroon-950/55 to-maroon-950/85" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[880px] flex-col items-center justify-center gap-5 px-6 text-center md:gap-7">
-        <span className="inline-flex items-center rounded-full border border-cream-50/30 bg-cream-50/10 px-4 py-1.5 text-xs font-bold tracking-[0.16em] text-peach-400 uppercase backdrop-blur-sm md:px-5 md:text-[13px] md:tracking-[0.18em]">
+        <span className="font-heading inline-flex items-center rounded-full border border-cream-50/30 bg-cream-50/10 px-4 py-1.5 text-xs font-medium tracking-[0.16em] text-peach-400 uppercase backdrop-blur-sm md:px-5 md:text-sm md:tracking-[0.18em]">
           Sunshine Coast
         </span>
 
-        <h1 className="font-sans text-[22px] leading-[1.08] font-extrabold tracking-tight whitespace-nowrap text-cream-0 uppercase sm:text-[30px] md:text-[60px]">
+        <h1 className="font-heading text-[26px] leading-[1.08] font-bold tracking-tight whitespace-nowrap text-cream-0 uppercase sm:text-[36px] md:text-[68px]">
           Come Hungry. Leave Happy.
         </h1>
 

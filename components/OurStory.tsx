@@ -9,10 +9,10 @@ export function OurStory() {
           <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
             Our Story
           </span>
-          <h2 className="font-display text-[30px] font-semibold text-maroon-800 md:text-[42px]">
+          <h2 className="font-display text-[34px] font-semibold text-maroon-800 md:text-[50px]">
             Australia&rsquo;s Fastest-Growing Indian Restaurant Chain
           </h2>
-          <p className="text-sm leading-relaxed text-ink-600 md:text-base">
+          <p className="text-base leading-relaxed text-ink-600 md:text-lg">
             It started in 2007 in Footscray, when two friends who couldn&rsquo;t
             find a proper dosa decided to make their own. Nearly two decades
             on, Dosa Hut has grown into a family of 25+ branches across
@@ -23,10 +23,10 @@ export function OurStory() {
           <div className="mt-2 grid grid-cols-3 gap-4 md:mt-3 md:gap-6">
             {STORY_STATS.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-1">
-                <span className="font-display text-2xl font-semibold text-maroon-800 md:text-[32px]">
+                <span className="font-display text-3xl font-semibold text-maroon-800 md:text-[40px]">
                   {stat.value}
                 </span>
-                <span className="text-[11.5px] leading-snug text-ink-600 md:text-[13px]">
+                <span className="text-[13px] leading-snug text-ink-600 md:text-[15px]">
                   {stat.label}
                 </span>
               </div>

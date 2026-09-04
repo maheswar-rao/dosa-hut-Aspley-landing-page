@@ -29,7 +29,7 @@ export const NAV_LINKS = [
 ];
 
 export const HOURS = [
-  { day: "Mon – Thu", time: "11:00 am – 2:30 pm, 4:00 pm – 9:30 pm" },
+  { day: "Mon – Thu", time: "11:00 am – 2:30 pm, 4:00 pm – 9:00 pm" },
   { day: "Fri – Sun", time: "11:00 am – 9:30 pm" },
 ];
 

@@ -6,7 +6,7 @@ import { ChevronRightIcon } from "./Icons";
 import type { Dish } from "@/lib/site";
 
 const DISPLAY_MS = 2000;
-const TRANSITION_MS = 700;
+const TRANSITION_MS = 1200;
 
 export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: string }) {
   const [index, setIndex] = useState(0);
@@ -33,7 +33,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
   return (
     <div className="w-full max-w-[1200px]">
       <div
-        className="relative mx-auto h-[300px] w-full overflow-hidden sm:h-[360px] md:h-[440px]"
+        className="relative mx-auto h-[260px] w-full overflow-hidden sm:h-[300px] md:h-[360px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -46,7 +46,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
           const isSide = Math.abs(diff) === 1;
           const translate = diff * 56;
           const scale = isCurrent ? 1 : isSide ? 0.78 : 0.62;
-          const opacity = isCurrent ? 1 : isSide ? 0.35 : 0;
+          const opacity = isCurrent ? 1 : 0;
 
           return (
             <div
@@ -63,14 +63,14 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
               }
               aria-label={isCurrent ? `Order ${d.name} online` : undefined}
               aria-hidden={!isCurrent}
-              className={`absolute inset-y-0 left-1/2 flex w-[78%] max-w-[560px] items-center justify-center transition-all ease-out sm:w-[62%] ${
+              className={`absolute inset-y-0 left-1/2 flex w-[68%] max-w-[460px] items-center justify-center transition-all ease-in-out sm:w-[52%] ${
                 isCurrent ? "cursor-pointer" : ""
               }`}
               style={{
                 transform: `translateX(calc(-50% + ${translate}%)) scale(${scale})`,
                 opacity,
                 transitionDuration: `${TRANSITION_MS}ms`,
-                zIndex: isCurrent ? 20 : isSide ? 10 : 0,
+                zIndex: isCurrent ? 3 : isSide ? 2 : 1,
                 pointerEvents: isCurrent ? "auto" : "none",
               }}
             >
@@ -82,7 +82,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
                     fill
                     sizes="(max-width: 768px) 90vw, 560px"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    priority={i === 0}
+                    priority
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-maroon-800 to-maroon-900">
@@ -103,7 +103,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
               type="button"
               aria-label="Previous dish"
               onClick={() => go(-1)}
-              className="absolute top-1/2 left-1 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:left-3"
+              className="absolute top-1/2 left-1 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:left-3"
             >
               <ChevronRightIcon size={15} className="rotate-180" />
             </button>
@@ -111,7 +111,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
               type="button"
               aria-label="Next dish"
               onClick={() => go(1)}
-              className="absolute top-1/2 right-1 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:right-3"
+              className="absolute top-1/2 right-1 z-[4] flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-maroon-800/15 bg-cream-0/90 text-maroon-800 shadow-sm backdrop-blur-sm transition-colors hover:bg-cream-0 sm:right-3"
             >
               <ChevronRightIcon size={15} />
             </button>
@@ -130,7 +130,7 @@ export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: s
       </div>
 
       {count > 1 && (
-        <div className="mx-auto mt-4 flex w-full max-w-[220px] items-center gap-3">
+        <div className="hidden mx-auto mt-4 flex w-full max-w-[220px] items-center gap-3">
           <span className="font-heading shrink-0 text-[11px] font-semibold tracking-wide text-ink-600 tabular-nums">
             {String(index + 1).padStart(2, "0")}/{String(count).padStart(2, "0")}
           </span>

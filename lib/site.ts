@@ -230,23 +230,19 @@ export type Feature = {
 
 export const FEATURES: Feature[] = [
   {
-    title: "Made From Scratch",
-    description:
-      "Every dish prepared from scratch using real produce and traditional recipes.",
-  },
-  {
-    title: "Aromatic Biryanis",
-    description:
-      "Perfectly spiced and sure to delight from the first bite.",
+    title: "Authentic Spices",
+    description: "Imported traditional Indian spices ground fresh daily.",
   },
   {
     title: "90+ Dosa Varieties",
-    description:
-      "Golden and crispy outside, soft inside — there's a dosa for every craving.",
+    description: "Queensland's largest live dosa menu served fresh and hot.",
   },
   {
-    title: "Easy Online Ordering",
-    description:
-      "Order in a few clicks and choose pickup or delivery, straight from our site.",
+    title: "100% Halal & Pure Veg",
+    description: "Dedicated preparation spaces respecting all dietary choices.",
+  },
+  {
+    title: "Fast Local Delivery",
+    description: "Hot & fresh via UberEats, DoorDash, or direct takeaway.",
   },
 ];

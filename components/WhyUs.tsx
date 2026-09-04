@@ -1,17 +1,17 @@
 import { DeviceIcon, FlameIcon, LeafIcon, UtensilsIcon } from "./Icons";
 import { FEATURES } from "@/lib/site";
 
-const ICONS = [LeafIcon, FlameIcon, UtensilsIcon, DeviceIcon];
+const ICONS = [FlameIcon, UtensilsIcon, LeafIcon, DeviceIcon];
 
 export function WhyUs() {
   return (
     <section id="why-us" className="flex w-full flex-col items-center gap-6 bg-maroon-900 px-5 py-10 md:gap-10 md:px-16 md:py-16">
-      <div className="flex max-w-[600px] flex-col items-center gap-3 text-center md:gap-4">
+      <div className="flex max-w-[680px] flex-col items-center gap-3 text-center md:gap-4">
         <span className="text-xs font-bold tracking-[0.16em] text-peach-400 uppercase md:text-[13px] md:tracking-[0.18em]">
-          Why Dosa Hut Sunshine Coast
+          Why Sunshine Coast Loves Us
         </span>
         <h2 className="font-display text-[28px] font-semibold text-cream-0 md:text-[42px]">
-          Fresh Ingredients, Honest Flavours
+          Not Just Food, It&rsquo;s a 90-Dosa Culinary Journey Right Here in Buddina.
         </h2>
       </div>
 

@@ -1,13 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "./Button";
-import { DISHES, DISH_CATEGORIES, SITE } from "@/lib/site";
+import { categorySlug, DISHES, DISH_CATEGORIES, SITE } from "@/lib/site";
 
 export function FoodShowcase() {
   const [active, setActive] = useState<(typeof DISH_CATEGORIES)[number]>(DISH_CATEGORIES[0]);
   const visibleDishes = DISHES.filter((dish) => dish.category === active);
+
+  useEffect(() => {
+    function applyHash() {
+      const hash = window.location.hash.replace("#menu-", "");
+      const match = DISH_CATEGORIES.find((category) => categorySlug(category) === hash);
+      if (match) {
+        setActive(match);
+        document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   return (
     <section id="menu" className="flex w-full flex-col items-center gap-6 px-5 py-10 md:gap-9 md:px-16 md:py-16">
@@ -64,9 +78,14 @@ export function FoodShowcase() {
               <span className="text-[11px] font-bold tracking-[0.14em] text-orange-500 uppercase">
                 {dish.category}
               </span>
-              <span className="font-display text-xl font-semibold text-ink-900 md:text-[23px]">
-                {dish.name}
-              </span>
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="font-display text-xl font-semibold text-ink-900 md:text-[23px]">
+                  {dish.name}
+                </span>
+                <span className="shrink-0 text-base font-bold text-maroon-800 md:text-lg">
+                  {dish.price}
+                </span>
+              </div>
             </div>
           </div>
         ))}

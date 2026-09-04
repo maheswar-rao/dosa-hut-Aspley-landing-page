@@ -36,88 +36,105 @@ export const HOURS = [
 export type Dish = {
   category: string;
   name: string;
+  price: string;
   image?: string;
   alt?: string;
 };
 
 export const DISH_CATEGORIES = [
   "Dosa",
-  "Biryani",
-  "Curries",
+  "Biryani & More",
   "Tandoori Starters",
-  "Indian Street Food",
+  "Vegetarian Curries",
+  "Chicken Curries",
+  "Indo-Chinese",
+  "Goat & Lamb Curry",
 ] as const;
+
+export function categorySlug(category: string) {
+  return category.toLowerCase().replace(/\s+/g, "-");
+}
 
 export const DISHES: Dish[] = [
   // Dosa
   {
     category: "Dosa",
     name: "Masala Dosa",
+    price: "$15.95",
     image: "/images/dish-masala-dosa.jpg",
     alt: "Crisp masala dosa served with a plate of accompaniments",
   },
-  { category: "Dosa", name: "Paneer Dosa" },
-  { category: "Dosa", name: "Mysore Masala Dosa" },
-  { category: "Dosa", name: "Ghee Podi Dosa" },
-  { category: "Dosa", name: "Onion Dosa" },
-  { category: "Dosa", name: "Ghee Plain Dosa" },
+  { category: "Dosa", name: "Paneer Dosa", price: "$16.95" },
+  { category: "Dosa", name: "Onion Dosa", price: "$10.95" },
+  { category: "Dosa", name: "Ghee Podi Dosa", price: "$9.95" },
+  { category: "Dosa", name: "Ghee Plain Dosa", price: "$9.95" },
+  { category: "Dosa", name: "Plain Dosa", price: "$8.95" },
 
-  // Biryani
+  // Biryani & More
   {
-    category: "Biryani",
+    category: "Biryani & More",
     name: "Chicken 65 Biryani",
+    price: "$19.95",
     image: "/images/dish-chicken-65-biryani.jpg",
     alt: "Chicken 65 biryani served in a copper handi with raita and curry on the side",
   },
-  { category: "Biryani", name: "Chicken Dum Biryani" },
-  { category: "Biryani", name: "Chicken Tikka Biryani" },
-  { category: "Biryani", name: "Vegetarian Dum Biryani" },
-  { category: "Biryani", name: "Paneer 65 Biryani" },
-  { category: "Biryani", name: "Egg Biryani" },
+  { category: "Biryani & More", name: "Chicken Dum Biryani", price: "$19.95" },
+  { category: "Biryani & More", name: "Chicken Tikka Biryani", price: "$19.95" },
+  { category: "Biryani & More", name: "Vegetarian Dum Biryani", price: "$16.95" },
+  { category: "Biryani & More", name: "Paneer 65 Biryani", price: "$19.95" },
+  { category: "Biryani & More", name: "Egg Biryani", price: "$18.95" },
 
-  // Curries
+  // Tandoori Starters
+  { category: "Tandoori Starters", name: "Chicken Tikka", price: "$18.95" },
+  { category: "Tandoori Starters", name: "Paneer Tikka", price: "$16.95" },
+  { category: "Tandoori Starters", name: "Tandoori Soya Chaap", price: "$16.95" },
+  { category: "Tandoori Starters", name: "Chatpata Soya", price: "$16.95" },
+  { category: "Tandoori Starters", name: "Murgh Malai Reshmi Tikka", price: "$18.95" },
+  { category: "Tandoori Starters", name: "Tandoori Chicken (Half)", price: "$18.95" },
+
+  // Vegetarian Curries
+  { category: "Vegetarian Curries", name: "Dal Tadka", price: "$18.50" },
+  { category: "Vegetarian Curries", name: "Dal Makhani", price: "$19.95" },
+  { category: "Vegetarian Curries", name: "Paneer Butter Masala", price: "$19.95" },
+  { category: "Vegetarian Curries", name: "Palak Paneer", price: "$19.95" },
+  { category: "Vegetarian Curries", name: "Paneer Tikka Masala", price: "$19.95" },
+  { category: "Vegetarian Curries", name: "Kadai Paneer", price: "$19.95" },
+
+  // Chicken Curries
   {
-    category: "Curries",
+    category: "Chicken Curries",
     name: "Butter Chicken",
+    price: "$21.95",
     image: "/images/dish-butter-chicken.jpg",
     alt: "Creamy butter chicken curry garnished with mint",
   },
-  { category: "Curries", name: "Chicken Tikka Masala" },
-  { category: "Curries", name: "Chicken Kolhapuri" },
-  { category: "Curries", name: "Kadai Chicken" },
-  { category: "Curries", name: "Chicken Madras" },
-  { category: "Curries", name: "Dal Makhani" },
+  { category: "Chicken Curries", name: "Chicken Tikka Masala", price: "$21.95" },
+  { category: "Chicken Curries", name: "Chicken Kolhapuri", price: "$21.95" },
+  { category: "Chicken Curries", name: "Kadai Chicken", price: "$21.95" },
+  { category: "Chicken Curries", name: "Chicken Madras", price: "$21.95" },
+  { category: "Chicken Curries", name: "Delhi Mughlai Chicken", price: "$21.95" },
 
-  // Tandoori Starters
+  // Indo-Chinese
   {
-    category: "Tandoori Starters",
-    name: "Garlic Naan",
-    image: "/images/dish-garlic-naan.jpg",
-    alt: "Freshly baked garlic naan bread with curry and samosa",
-  },
-  { category: "Tandoori Starters", name: "Chicken Tikka" },
-  { category: "Tandoori Starters", name: "Paneer Tikka" },
-  { category: "Tandoori Starters", name: "Tandoori Chicken Half" },
-  { category: "Tandoori Starters", name: "Seekh Kebab (Lamb)" },
-  { category: "Tandoori Starters", name: "Chatpata Soya" },
-
-  // Indian Street Food
-  {
-    category: "Indian Street Food",
-    name: "Pani Puri Chaat",
-    image: "/images/dish-pani-puri.jpg",
-    alt: "Crisp pani puri street snack served with tangy filling",
-  },
-  {
-    category: "Indian Street Food",
+    category: "Indo-Chinese",
     name: "Chicken 65",
+    price: "$19.95",
     image: "/images/dish-chicken-65.jpg",
     alt: "Spiced Chicken 65 tossed with crispy onions and chillies",
   },
-  { category: "Indian Street Food", name: "Dahi Puri" },
-  { category: "Indian Street Food", name: "Samosa" },
-  { category: "Indian Street Food", name: "Dahi Bhalla" },
-  { category: "Indian Street Food", name: "Vada" },
+  { category: "Indo-Chinese", name: "Gobi 65", price: "$18.95" },
+  { category: "Indo-Chinese", name: "Chilli Chicken", price: "$19.95" },
+  { category: "Indo-Chinese", name: "Chilli Paneer", price: "$18.95" },
+  { category: "Indo-Chinese", name: "Chicken Manchuria", price: "$19.95" },
+  { category: "Indo-Chinese", name: "Chilli Goat", price: "$20.95" },
+
+  // Goat & Lamb Curry
+  { category: "Goat & Lamb Curry", name: "Goat Curry", price: "$23.95" },
+  { category: "Goat & Lamb Curry", name: "Bhuna Goat", price: "$23.95" },
+  { category: "Goat & Lamb Curry", name: "Goat Karahi", price: "$23.95" },
+  { category: "Goat & Lamb Curry", name: "Lamb Rogan Josh", price: "$23.95" },
+  { category: "Goat & Lamb Curry", name: "Pepper Lamb Masala", price: "$23.95" },
+  { category: "Goat & Lamb Curry", name: "Delhi Mughlai Goat Curry", price: "$23.95" },
 ];
 
 export type Stat = {

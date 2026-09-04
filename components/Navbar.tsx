@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronRightIcon, CloseIcon, MenuIcon } from "./Icons";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { categorySlug, DISH_CATEGORIES, NAV_LINKS, SITE } from "@/lib/site";
 
 const ORDER_PLATFORMS = [
   { label: "Order Direct", href: SITE.orderUrl, logo: null },
@@ -14,6 +14,7 @@ const ORDER_PLATFORMS = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [orderOpen, setOrderOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="sticky top-0 z-20 w-full bg-maroon-900">
@@ -31,15 +32,51 @@ export function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-9 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="font-heading text-[15px] font-semibold tracking-wide text-cream-50 uppercase hover:text-peach-400"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.label === "Menu" ? (
+              <div key={link.label} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setMenuOpen((v) => !v)}
+                  className="font-heading flex items-center gap-1.5 text-[15px] font-semibold tracking-wide text-cream-50 uppercase hover:text-peach-400"
+                >
+                  Menu
+                  <ChevronRightIcon size={11} className={`transition-transform ${menuOpen ? "-rotate-90" : "rotate-90"}`} />
+                </button>
+
+                {menuOpen && (
+                  <>
+                    <button
+                      type="button"
+                      aria-label="Close menu categories"
+                      onClick={() => setMenuOpen(false)}
+                      className="fixed inset-0 z-10 cursor-default"
+                    />
+                    <div className="absolute top-full left-0 z-20 mt-2 flex w-56 flex-col gap-1 rounded-2xl border border-maroon-800/10 bg-cream-0 p-2.5 shadow-[0_16px_32px_-12px_rgba(0,0,0,0.35)]">
+                      {DISH_CATEGORIES.map((category) => (
+                        <a
+                          key={category}
+                          href={`#menu-${categorySlug(category)}`}
+                          onClick={() => setMenuOpen(false)}
+                          className="rounded-xl px-3 py-2.5 text-sm font-semibold text-maroon-800 hover:bg-cream-100"
+                        >
+                          {category}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <a
+                key={link.label}
+                href={link.href}
+                className="font-heading text-[15px] font-semibold tracking-wide text-cream-50 uppercase hover:text-peach-400"
+              >
+                {link.label}
+              </a>
+            )
+          )}
 
           <div className="relative">
             <button
@@ -107,6 +144,22 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+
+          <div className="mt-2 flex flex-col gap-1 rounded-2xl bg-cream-0 p-2">
+            <span className="font-heading px-3 pt-1.5 pb-0.5 text-[11px] font-semibold tracking-[0.1em] text-maroon-800/50 uppercase">
+              Menu Categories
+            </span>
+            {DISH_CATEGORIES.map((category) => (
+              <a
+                key={category}
+                href={`#menu-${categorySlug(category)}`}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-3 py-2.5 text-sm font-semibold text-maroon-800 hover:bg-cream-100"
+              >
+                {category}
+              </a>
+            ))}
+          </div>
 
           <div className="mt-2 flex flex-col gap-1 rounded-2xl bg-cream-0 p-2">
             <span className="font-heading px-3 pt-1.5 pb-0.5 text-[11px] font-semibold tracking-[0.1em] text-maroon-800/50 uppercase">

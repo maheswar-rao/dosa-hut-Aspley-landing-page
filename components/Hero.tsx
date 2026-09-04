@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "./Button";
-import { ArrowRightIcon, PinIcon } from "./Icons";
+import { ArrowRightIcon } from "./Icons";
 import { SITE } from "@/lib/site";
 
 export function Hero() {
@@ -17,10 +17,6 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-maroon-950/75 via-maroon-950/55 to-maroon-950/85" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-[880px] flex-col items-center justify-center gap-5 px-6 text-center md:gap-7">
-        <span className="font-heading inline-flex items-center rounded-full border border-cream-50/30 bg-cream-50/10 px-4 py-1.5 text-xs font-medium tracking-[0.16em] text-peach-400 uppercase backdrop-blur-sm md:px-5 md:text-sm md:tracking-[0.18em]">
-          Sunshine Coast
-        </span>
-
         <h1 className="font-heading text-[26px] leading-[1.08] font-bold tracking-tight whitespace-nowrap text-cream-0 uppercase sm:text-[36px] md:text-[68px]">
           Come Hungry. Leave Happy.
         </h1>
@@ -39,15 +35,6 @@ export function Hero() {
           <Button href="#menu" variant="outline" external={false} full className="sm:w-auto">
             VIEW MENU
           </Button>
-        </div>
-
-        <div className="mt-2 flex items-center gap-2.5 rounded-2xl border border-cream-50/20 bg-cream-50/10 px-4 py-3 md:mt-4 md:w-fit">
-          <PinIcon size={16} color="#F2A574" className="shrink-0" />
-          <span className="min-w-0 text-left text-[13px] leading-snug text-cream-50/90 md:text-sm">
-            <span className="font-semibold text-cream-0 md:mr-2">Dosa Hut Sunshine Coast</span>
-            <span className="hidden md:inline">·</span>{" "}
-            {SITE.addressFull}
-          </span>
         </div>
       </div>
     </section>

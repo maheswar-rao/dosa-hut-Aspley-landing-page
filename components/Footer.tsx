@@ -22,8 +22,8 @@ export function Footer() {
           <Image
             src="/images/logo.png"
             alt="Dosa Hut logo"
-            width={280}
-            height={117}
+            width={272}
+            height={182}
             className="h-14 w-auto self-start md:h-[64px]"
           />
           <p className="max-w-[280px] text-sm leading-relaxed text-cream-50/60">

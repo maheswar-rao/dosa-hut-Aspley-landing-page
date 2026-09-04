@@ -23,8 +23,8 @@ export function Navbar() {
           <Image
             src="/images/logo.png"
             alt="Dosa Hut logo"
-            width={280}
-            height={117}
+            width={272}
+            height={182}
             className="h-11 w-auto md:h-16"
             priority
           />

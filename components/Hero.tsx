@@ -97,7 +97,7 @@ export function Hero() {
         sizes="100vw"
         className="object-cover opacity-[0.24]"
       />
-      <div className="pointer-events-none absolute inset-0 bg-cream-50/55" />
+      <div className="pointer-events-none absolute inset-0 bg-maroon-100/70" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(241,90,39,0.12),transparent_60%)]" />
 
       {/* Orbit ring — desktop only, see useOrbitEnabled for why */}

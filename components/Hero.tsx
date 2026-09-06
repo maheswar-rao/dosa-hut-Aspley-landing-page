@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "./Button";
 import { ArrowRightIcon } from "./Icons";
+import { WeekendSpecialModal } from "./WeekendSpecialModal";
 import { DISHES, SITE, type Dish } from "@/lib/site";
 
 const PLANET_NAMES = [
@@ -47,6 +48,7 @@ export function Hero() {
   const [angle, setAngle] = useState(0);
   const [paused, setPaused] = useState(false);
   const [active, setActive] = useState<Dish | null>(null);
+  const [weekendOpen, setWeekendOpen] = useState(false);
 
   const rafRef = useRef<number | null>(null);
   const lastTsRef = useRef<number | null>(null);
@@ -182,11 +184,17 @@ export function Hero() {
             ORDER ONLINE
             <ArrowRightIcon />
           </Button>
-          <Button href="#weekend-specials" variant="outline-dark" external={false} full className="sm:w-auto">
+          <button
+            type="button"
+            onClick={() => setWeekendOpen(true)}
+            className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-maroon-800/25 bg-transparent px-9 py-[18px] text-[15px] font-bold tracking-wide text-maroon-800 transition-colors hover:border-maroon-800 sm:w-auto"
+          >
             🔥 WEEKEND SPECIAL
-          </Button>
+          </button>
         </div>
       </div>
+
+      <WeekendSpecialModal open={weekendOpen} onClose={() => setWeekendOpen(false)} />
     </section>
   );
 }

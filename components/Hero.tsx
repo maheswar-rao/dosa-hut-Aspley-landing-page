@@ -107,7 +107,7 @@ export function Hero() {
             return (
               <div
                 key={dish.name}
-                className="pointer-events-auto absolute top-1/2 left-1/2 transition-transform duration-300 ease-out"
+                className="pointer-events-auto absolute top-1/2 left-1/2"
                 style={{
                   transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
                 }}

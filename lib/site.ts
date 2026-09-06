@@ -103,7 +103,13 @@ export const DISHES: Dish[] = [
   },
 
   // Tandoori Starters
-  { category: "Tandoori Starters", name: "Chicken Tikka", price: "$18.95" },
+  {
+    category: "Tandoori Starters",
+    name: "Chicken Tikka",
+    price: "$18.95",
+    image: "/images/dish-chicken-tikka.jpg",
+    alt: "Tandoori-grilled chicken tikka skewers with onion, coriander and lemon",
+  },
   {
     category: "Tandoori Starters",
     name: "Paneer Tikka",

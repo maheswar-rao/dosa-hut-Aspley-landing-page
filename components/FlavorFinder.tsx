@@ -9,9 +9,8 @@ import { categorySlug, DISHES, SITE, type Dish } from "@/lib/site";
 type CategoryKey = "Dosas" | "Biryanis" | "Curries";
 
 type DishTag = {
-  axis1: string;
-  axis2: string;
-  axis3: string;
+  spice: string;
+  diet: string;
   isVeg: boolean;
 };
 
@@ -22,10 +21,10 @@ type Step = {
 
 type CategoryConfig = {
   tabLabel: string;
-  heading: string;
+  discoverHeading: string; // dynamic sub-title shown while this tab is active
   dishCategories: string[]; // real categories from lib/site.ts to pull dishes from
-  steps: [Step, Step, Step];
-  vegDietLabel: string; // whichever Step-3 option means "vegetarian" for this category
+  steps: [Step, Step]; // exactly 2 questions: spice, then diet
+  vegDietLabel: string; // whichever diet option means "vegetarian" for this category
   tags: Record<string, DishTag>; // keyed by real dish name
 };
 
@@ -37,84 +36,53 @@ type CategoryConfig = {
 const CATEGORIES: Record<CategoryKey, CategoryConfig> = {
   Dosas: {
     tabLabel: "Dosas",
-    heading: "Find Your Dosa",
+    discoverHeading: "Discover Your Perfect Dosa",
     dishCategories: ["Dosa"],
     steps: [
-      { label: "Texture", options: ["Crispy", "Soft"] },
       { label: "Spice Level", options: ["Mild", "Medium", "Spicy"] },
       { label: "Diet", options: ["Vegetarian", "Non-Veg / Meat"] },
     ],
     vegDietLabel: "Vegetarian",
     tags: {
-      "Masala Dosa": { axis1: "Crispy", axis2: "Mild", axis3: "Vegetarian", isVeg: true },
-      "Onion Dosa": { axis1: "Crispy", axis2: "Mild", axis3: "Vegetarian", isVeg: true },
-      "Paneer Dosa": { axis1: "Soft", axis2: "Mild", axis3: "Vegetarian", isVeg: true },
+      "Masala Dosa": { spice: "Mild", diet: "Vegetarian", isVeg: true },
+      "Onion Dosa": { spice: "Mild", diet: "Vegetarian", isVeg: true },
+      "Paneer Dosa": { spice: "Mild", diet: "Vegetarian", isVeg: true },
     },
   },
   Biryanis: {
     tabLabel: "Biryanis",
-    heading: "Find Your Biryani",
+    discoverHeading: "Discover Your Perfect Biryani",
     dishCategories: ["Biryani & More"],
     steps: [
-      { label: "Style", options: ["Classic Hyderabadi Dum", "Spicy Guntur / Special"] },
       { label: "Flavor Profile", options: ["Mild Aromatic", "Extra Spicy & Rich"] },
       { label: "Diet", options: ["Pure Veg / Paneer", "Chicken / Mutton"] },
     ],
     vegDietLabel: "Pure Veg / Paneer",
     tags: {
-      "Vegetarian Dum Biryani": {
-        axis1: "Classic Hyderabadi Dum",
-        axis2: "Mild Aromatic",
-        axis3: "Pure Veg / Paneer",
-        isVeg: true,
-      },
-      "Chicken Dum Biryani": {
-        axis1: "Classic Hyderabadi Dum",
-        axis2: "Mild Aromatic",
-        axis3: "Chicken / Mutton",
-        isVeg: false,
-      },
-      "Chicken 65 Biryani": {
-        axis1: "Spicy Guntur / Special",
-        axis2: "Extra Spicy & Rich",
-        axis3: "Chicken / Mutton",
-        isVeg: false,
-      },
+      "Vegetarian Dum Biryani": { spice: "Mild Aromatic", diet: "Pure Veg / Paneer", isVeg: true },
+      "Chicken Dum Biryani": { spice: "Mild Aromatic", diet: "Chicken / Mutton", isVeg: false },
+      "Chicken 65 Biryani": { spice: "Extra Spicy & Rich", diet: "Chicken / Mutton", isVeg: false },
     },
   },
   Curries: {
     tabLabel: "Curries",
-    heading: "Find Your Curry",
+    discoverHeading: "Discover Your Perfect Curry",
     dishCategories: ["Vegetarian Curries", "Chicken Curries", "Goat & Lamb Curry"],
     steps: [
-      {
-        label: "Base / Gravy",
-        options: ["Creamy Butter Sauce", "Rich Tomato / Onion Gravy", "Lighter South Indian Style"],
-      },
       { label: "Heat Level", options: ["Mild", "Medium", "Hot"] },
       { label: "Diet", options: ["Vegetarian", "Chicken / Lamb / Goat"] },
     ],
     vegDietLabel: "Vegetarian",
     tags: {
-      "Paneer Butter Masala": { axis1: "Creamy Butter Sauce", axis2: "Mild", axis3: "Vegetarian", isVeg: true },
-      "Butter Chicken": { axis1: "Creamy Butter Sauce", axis2: "Mild", axis3: "Chicken / Lamb / Goat", isVeg: false },
-      "Chicken Tikka Masala": {
-        axis1: "Creamy Butter Sauce",
-        axis2: "Medium",
-        axis3: "Chicken / Lamb / Goat",
-        isVeg: false,
-      },
-      "Chicken Madras": { axis1: "Rich Tomato / Onion Gravy", axis2: "Hot", axis3: "Chicken / Lamb / Goat", isVeg: false },
-      "Goat Curry": { axis1: "Rich Tomato / Onion Gravy", axis2: "Hot", axis3: "Chicken / Lamb / Goat", isVeg: false },
-      "Goat Karahi": { axis1: "Rich Tomato / Onion Gravy", axis2: "Hot", axis3: "Chicken / Lamb / Goat", isVeg: false },
-      "Lamb Rogan Josh": {
-        axis1: "Rich Tomato / Onion Gravy",
-        axis2: "Hot",
-        axis3: "Chicken / Lamb / Goat",
-        isVeg: false,
-      },
-      "Dal Makhani": { axis1: "Lighter South Indian Style", axis2: "Mild", axis3: "Vegetarian", isVeg: true },
-      "Palak Paneer": { axis1: "Lighter South Indian Style", axis2: "Medium", axis3: "Vegetarian", isVeg: true },
+      "Paneer Butter Masala": { spice: "Mild", diet: "Vegetarian", isVeg: true },
+      "Butter Chicken": { spice: "Mild", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Chicken Tikka Masala": { spice: "Medium", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Chicken Madras": { spice: "Hot", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Goat Curry": { spice: "Hot", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Goat Karahi": { spice: "Hot", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Lamb Rogan Josh": { spice: "Hot", diet: "Chicken / Lamb / Goat", isVeg: false },
+      "Dal Makhani": { spice: "Mild", diet: "Vegetarian", isVeg: true },
+      "Palak Paneer": { spice: "Medium", diet: "Vegetarian", isVeg: true },
     },
   },
 };
@@ -135,23 +103,17 @@ function dishesForCategory(config: CategoryConfig): Dish[] {
 // hand back a meat dish to a vegetarian selection. The reverse (a non-veg
 // seeker occasionally seeing a veg dish, only when the menu truly has no
 // matching meat option in that category) is the one allowed asymmetry.
-function findMatches(config: CategoryConfig, a1: string, a2: string, a3: string): Dish[] {
-  const wantsVeg = a3 === config.vegDietLabel;
+function findMatches(config: CategoryConfig, spice: string, diet: string): Dish[] {
+  const wantsVeg = diet === config.vegDietLabel;
   const pool = dishesForCategory(config).filter((d) => !wantsVeg || config.tags[d.name].isVeg);
 
   const exact = pool.filter((d) => {
     const t = config.tags[d.name];
-    return t.axis1 === a1 && t.axis2 === a2 && t.axis3 === a3;
+    return t.spice === spice && t.diet === diet;
   });
   if (exact.length >= 2) return exact.slice(0, 2);
 
-  const twoAxis = pool.filter((d) => {
-    const t = config.tags[d.name];
-    return t.axis2 === a2 && t.axis3 === a3;
-  });
-  if (twoAxis.length >= 2) return twoAxis.slice(0, 2);
-
-  const dietOnly = pool.filter((d) => config.tags[d.name].axis3 === a3);
+  const dietOnly = pool.filter((d) => config.tags[d.name].diet === diet);
   if (dietOnly.length >= 2) return dietOnly.slice(0, 2);
 
   return pool.slice(0, 2);
@@ -181,23 +143,23 @@ export function FlavorFinder() {
   }
 
   const results = useMemo(() => {
-    if (answers.length < 3) return null;
-    return findMatches(config, answers[0], answers[1], answers[2]);
+    if (answers.length < 2) return null;
+    return findMatches(config, answers[0], answers[1]);
   }, [config, answers]);
 
-  const done = step >= 3 && results;
-  const wantsVeg = answers[2] === config.vegDietLabel;
+  const done = step >= 2 && results;
+  const wantsVeg = answers[1] === config.vegDietLabel;
   const crossedToVeg = done && !wantsVeg && results!.some((d) => config.tags[d.name].isVeg);
 
   return (
     <section className="flex w-full flex-col items-center gap-6 bg-cream-50 px-5 py-10 md:gap-10 md:px-16 md:py-16">
       <div className="flex max-w-[620px] flex-col items-center gap-3 text-center md:gap-4">
-        <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
-          Not Sure What To Order?
-        </span>
         <h2 className="font-display text-[28px] font-semibold text-maroon-800 md:text-[42px]">
-          {config.heading}
+          Craving Finder
         </h2>
+        <p className="text-sm font-semibold tracking-wide text-orange-500 uppercase md:text-base">
+          Answer 2 Questions, Get Your Perfect Meal
+        </p>
       </div>
 
       <div className="flex items-center gap-2.5">
@@ -216,6 +178,10 @@ export function FlavorFinder() {
           </button>
         ))}
       </div>
+
+      <span className="font-display text-xl font-semibold text-maroon-900 md:text-2xl">
+        {config.discoverHeading}
+      </span>
 
       <div className="flex w-full max-w-[720px] flex-col items-center gap-6 rounded-[22px] border border-maroon-800/10 bg-cream-0 p-6 shadow-[0_18px_36px_-24px_rgba(58,13,13,0.3)] md:p-10">
         {!done && (
@@ -258,7 +224,7 @@ export function FlavorFinder() {
 
             {crossedToVeg && (
               <p className="-mt-3 text-center text-[13px] text-ink-600 italic">
-                We don&rsquo;t have a matching {answers[2]?.toLowerCase()} option here &mdash; here are our
+                We don&rsquo;t have a matching {answers[1]?.toLowerCase()} option here &mdash; here are our
                 closest picks instead.
               </p>
             )}
@@ -310,7 +276,7 @@ export function FlavorFinder() {
                           {dish.alt ?? ""}
                         </p>
                         <span className="text-[11px] font-semibold text-ink-600">
-                          {tag.axis2} &middot; {tag.axis3}
+                          {tag.spice} &middot; {tag.diet}
                         </span>
                         <span className="text-base font-bold text-maroon-800">{dish.price}</span>
                       </div>

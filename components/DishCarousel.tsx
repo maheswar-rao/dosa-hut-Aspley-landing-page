@@ -5,8 +5,8 @@ import Image from "next/image";
 import { ChevronRightIcon } from "./Icons";
 import type { Dish } from "@/lib/site";
 
-const DISPLAY_MS = 2000;
-const TRANSITION_MS = 1200;
+const DISPLAY_MS = 3400;
+const TRANSITION_MS = 2400;
 
 export function DishCarousel({ dishes, orderUrl }: { dishes: Dish[]; orderUrl: string }) {
   const [index, setIndex] = useState(0);

@@ -20,15 +20,13 @@ const PLANET_NAMES = [
   "Goat Curry",
 ];
 
-// Fallback safety check so missing items don't break mapping
-const PLANETS: Dish[] = PLANET_NAMES.map(
-  (name) => DISHES.find((d) => d.name === name)!
-).filter(Boolean);
+const PLANETS: Dish[] = PLANET_NAMES.map((name) => DISHES.find((d) => d.name === name)!);
 
 const ROTATION_MS = 60000;
 const DISH_SIZE = 128;
 
-const ORBIT_RADIUS_X = 550;
+// Medium Ellipse Radius
+const ORBIT_RADIUS_X = 550; 
 const ORBIT_RADIUS_Y = 200;
 
 function useOrbitEnabled() {
@@ -85,15 +83,14 @@ export function Hero() {
       id="top"
       className="relative flex h-[660px] w-full flex-col items-center justify-center overflow-hidden bg-cream-50 md:h-[780px]"
     >
-      <Image
-        src="/images/hero-food.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover opacity-[0.24]"
+      {/* Light premium radial gradient — replaces the busy food-photo collage */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at center, #FFF7F4 0%, #F9ECE4 55%, #F2DDD0 100%)",
+        }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-maroon-100/70" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(241,90,39,0.12),transparent_60%)]" />
 
       {/* Orbiting Dishes */}
@@ -110,9 +107,9 @@ export function Hero() {
             return (
               <div
                 key={dish.name}
-                className="pointer-events-auto absolute top-1/2 left-1/2 will-change-transform"
+                className="pointer-events-auto absolute top-1/2 left-1/2 transition-transform duration-300 ease-out"
                 style={{
-                  transform: `translate3d(calc(-50% + ${x}px), calc(-50% + ${y}px), 0)`,
+                  transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
                 }}
                 onMouseEnter={() => handleMouseEnter(dish)}
                 onMouseLeave={handleMouseLeave}
@@ -120,7 +117,7 @@ export function Hero() {
                 {/* Shadow */}
                 <div
                   aria-hidden
-                  className="absolute left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ease-out pointer-events-none"
+                  className="absolute left-1/2 -translate-x-1/2 rounded-full transition-all duration-300 ease-out"
                   style={{
                     bottom: isActive ? -20 : -16,
                     width: isActive ? 120 : 96,
@@ -138,7 +135,7 @@ export function Hero() {
                   rel="noopener noreferrer"
                   aria-label={`Order ${dish.name} online`}
                   style={{ height: DISH_SIZE, width: DISH_SIZE }}
-                  className={`relative block overflow-hidden rounded-full border-2 border-maroon-800/15 shadow-[0_10px_24px_-8px_rgba(58,13,13,0.35)] transition-transform duration-300 ease-out ${
+                  className={`relative block overflow-hidden rounded-full border-2 border-maroon-800/15 shadow-[0_10px_24px_-8px_rgba(58,13,13,0.35)] transition-all duration-300 ease-out ${
                     isActive
                       ? "scale-125 border-orange-500 drop-shadow-2xl"
                       : "scale-100"
@@ -166,49 +163,14 @@ export function Hero() {
         </div>
       )}
 
-      {/* Center 280px Compact Preview Card on Hover */}
-      {active && (
-        <div className="pointer-events-none absolute z-20 flex flex-col items-center justify-center transition-all duration-300 ease-out animate-in fade-in zoom-in-95">
-          <div className="relative h-[280px] w-[280px] overflow-hidden rounded-full shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)]">
-            {active.image ? (
-              <Image
-                src={active.image}
-                alt={active.name}
-                fill
-                sizes="280px"
-                className="object-cover"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-maroon-900">
-                <span className="font-display text-xl font-bold text-cream-50">
-                  {active.name}
-                </span>
-              </div>
-            )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-
-            <div className="absolute bottom-6 left-1/2 flex w-[80%] -translate-x-1/2 flex-col items-center text-center">
-              <span className="text-[9px] font-bold tracking-[0.18em] text-orange-400 uppercase sm:text-[10px]">
-                {active.category}
-              </span>
-              <h2 className="font-heading text-xs font-bold leading-tight text-white uppercase drop-shadow-md sm:text-sm">
-                {active.name}
-              </h2>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Main Center Content */}
-      <div
-        className={`relative z-10 mx-auto flex max-w-[720px] flex-col items-center gap-4 px-4 text-center transition-opacity duration-300 ${
-          active ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
-      >
-        <h1 className="font-heading text-base font-bold tracking-tight text-maroon-900 uppercase sm:text-xl md:text-[28px] lg:text-[32px] lg:whitespace-nowrap">
+      <div className="relative z-10 mx-auto flex w-full max-w-[720px] flex-col items-center gap-4 px-4 text-center">
+        {/* Slightly Larger Tagline */}
+        <h1 className="font-heading text-base font-bold tracking-tight text-maroon-900 uppercase sm:text-xl md:text-[35px] whitespace-nowrap">
           India, Served with a Sunshine Coast Soul.
         </h1>
 
+        {/* Description Text */}
         <p className="max-w-[500px] text-xs leading-relaxed text-ink-600 sm:text-sm md:text-base">
           Where coastal relaxation meets authentic Indian heat. Sizzling
           tandoori grills, rich slow-cooked curries, street-side chaats, and
@@ -220,13 +182,7 @@ export function Hero() {
             ORDER ONLINE
             <ArrowRightIcon />
           </Button>
-          <Button
-            href="#weekend-specials"
-            variant="outline-dark"
-            external={false}
-            full
-            className="sm:w-auto"
-          >
+          <Button href="#weekend-specials" variant="outline-dark" external={false} full className="sm:w-auto">
             🔥 WEEKEND SPECIAL
           </Button>
         </div>

@@ -27,12 +27,12 @@ export function FoodShowcase() {
   return (
     <section id="menu" className="flex w-full flex-col items-center gap-6 px-5 py-10 md:gap-9 md:px-16 md:py-16">
       <div className="flex max-w-[620px] flex-col items-center gap-3 text-center md:gap-4">
-        <span className="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase md:text-[13px] md:tracking-[0.18em]">
-          What To Order
-        </span>
         <h2 className="font-display text-[34px] font-semibold text-maroon-800 md:text-[46px]">
-          Sunshine Coast Favourites
+          Crowd Pleasers
         </h2>
+        <p className="text-sm font-semibold tracking-wide text-orange-500 uppercase md:text-base">
+          Top 3 Must-Try Dishes Handpicked for You
+        </p>
       </div>
 
       <div className="flex w-full items-center gap-2.5 overflow-x-auto pb-1 md:w-auto md:flex-wrap md:justify-center md:overflow-visible">
